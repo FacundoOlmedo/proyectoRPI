@@ -1,9 +1,0 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-int main(void){
-
-	printf("Hola Mundo wachin bien ahi");
-
-return 0;
-}
