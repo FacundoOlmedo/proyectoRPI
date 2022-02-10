@@ -42,20 +42,6 @@ while(1){
         digitalWrite(v[j-1], 1);
         usleep(retardo);
 	}
-
-
-
-
-
-	for( int i = 0; i < 8; i++){
-		for( int j = 0; j < 8; j++)
-			digitalWrite(v[j],0);
-
-		digitalWrite(v[i], 1);
-	  	digitalWrite(v[7-i], 1);
-	 	usleep(retardo);
-	}
-	
 }
 
 return 0;
