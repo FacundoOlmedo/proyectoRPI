@@ -26,7 +26,9 @@ int main(void)
 	pinMode(v[6], OUTPUT);
 	pinMode(v[7], OUTPUT);
 
-	void autofantastico(void);
+    int suma=0;
+    
+	void lapareja(void);
 
 	int main()
 	{
@@ -34,28 +36,33 @@ int main(void)
 		while (1)
 		{
 
-			autofantastico();
+			lapareja();
 		}
 
 		return 0;
 	}
 
-	void autofantastico(void)
+	void lapareja(void)
 	{
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i <= 8; i++)
 		{
+            if(suma == 3)
+            {
+                suma = 0;
+                i = i - 2;
+            }
 			for (int j = 0; j < 8; j++)
 				digitalWrite(v[j], 0);
 			
-			digitalWrite(v[i], 1);
+            if(i != 8)
+                digitalWrite(v[i], 1);
+            if(i != 0)
+                digitalWrite(v[i-1], 1)
+            suma++;
 			usleep(retardo);
 		}
-		for (int i = 6; i > 0; i--)
-		{
-			for (int j = 0; j < 8; j++)
+        for (int j = 0; j < 8; j++)
 				digitalWrite(v[j], 0);
-
-			digitalWrite(v[i], 1);
-			usleep(retardo);
-		}
+        suma = 0;
+        usleep(retardo);
 	}
