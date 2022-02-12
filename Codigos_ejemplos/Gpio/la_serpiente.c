@@ -24,19 +24,15 @@ int secuencia[][] = {
 {1,1,1,0,0,0,0,1},
 };
 
-int main(void)
-{
+int v[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
+void la_serpiente(void);
+
+int main(void){
 
 	pioInit();
 
-	int v[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
-
-    for(int i=0; i<8; i++)
-	    pinMode(v[i], OUTPUT);  
-
-	void la_serpiente(void);
-
-int main(){
+	for(int i=0; i<8; i++)
+		pinMode(v[i], OUTPUT);  
 
 	while (1){
 		la_serpiente();

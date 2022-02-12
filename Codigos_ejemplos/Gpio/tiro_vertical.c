@@ -13,28 +13,27 @@
 #define led7 23
 #define led8 24
 
-int main(void)
-{
+int v[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
+void tiro_libre(void);
+
+int main(void){
 
 	pioInit();
 
-	int v[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
+	for(int i=0; i<8; i++)
+		pinMode(v[i], OUTPUT);  
 
-    for(int i=0; i<8; i++)
-	    pinMode(v[i], OUTPUT);  
-
-	void tiro_libre(void);
 
 int main(){
 
 	while (1){
-		tiro_libre();
+		tiro_vertical();
 	}
 
 	return 0;
 }
 
-void tiro_libre(void){
+void tiro_vertical(void){
 	int x = 0;
 	float v = 4.0;
 	float a = -1.0;
