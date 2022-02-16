@@ -140,7 +140,7 @@ void la_carrera(){
 	}
 }
 
-void lapareja(void){
+void la_pareja(void){
 	for (int i = 0; i <= 8; i++){
 		if(suma == 3){
 			suma = 0;
