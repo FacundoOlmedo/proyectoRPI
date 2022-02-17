@@ -42,4 +42,3 @@ La carrera: Una luz arranca por la izquierda a una determinada velocidad, y cuan
 
 La técnica de tabla de datos consiste en simplemente un bucle de programa que saca por los puertos de salida el contenido de una tabla preestablecida con valores que reproducen la secuencia deseada.
 
-Saludos
