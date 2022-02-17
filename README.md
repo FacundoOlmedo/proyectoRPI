@@ -41,3 +41,5 @@ La apilada: Una luz arranca de izquierda a derecha y cuando alcanza el extremo d
 La carrera: Una luz arranca por la izquierda a una determinada velocidad, y cuando va por la mitad del recorrido arranca una nueva luz por la izquierda pero al doble de velocidad lo que produce que arriben al extremo derecho al mismo tiempo.
 
 La técnica de tabla de datos consiste en simplemente un bucle de programa que saca por los puertos de salida el contenido de una tabla preestablecida con valores que reproducen la secuencia deseada.
+
+Saludos
