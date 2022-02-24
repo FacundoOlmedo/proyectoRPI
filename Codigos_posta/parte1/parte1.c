@@ -9,7 +9,6 @@
 #define led6 22
 #define led7 23
 #define led8 24
-#define retardo 250000
 
 int v[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
 
@@ -20,24 +19,26 @@ int main(void){
 		pinMode(v[i], OUTPUT);  
 	
 	int op = menu();
-
-	switch(op){
-		case 1:	auto_fantastico();
-						break;
-		case 2:	el_choque();
-						break;
-		case 3:	la_apilada();
-						break;
-		case 4:	la_carrera();
-						break;
-		case 5:	la_pareja();
-						break;
-		case 6:	la_serpiente();
-						break;
-		case 7:	tiro_vertical();
-						break;
-		// case 8:	();
-		// 				break;
+	for(int i=0; i<3; i++){
+		switch(op){
+			case 1:	auto_fantastico();
+							break;
+			case 2:	el_choque();
+							break;
+			case 3:	la_apilada();
+							break;
+			case 4:	la_carrera();
+							break;
+			case 5:	la_pareja();
+							break;
+			case 6:	la_serpiente();
+							break;
+			case 7:	tiro_vertical();
+							break;
+			case 8:	caida_pelota();
+							break;
+		}
+		ledsOff();
 	}
 	return 0;
 }
@@ -62,6 +63,7 @@ int menu(){
 }
 
 void autofantastico(){
+	const int retardo = 250000;
 	for (int i = 0; i < 8; i++){
 		for (int j = 0; j < 8; j++)
 			digitalWrite(v[j], 0);
@@ -79,9 +81,9 @@ void autofantastico(){
 }
 
 void el_choque(){
+	const int retardo = 250000;
 	for (int i = 0; i < 8; i++){
-		for (int j = 0; j < 8; j++)
-			digitalWrite(v[j], 0);
+		ledsOff();
 
 		digitalWrite(v[i], 1);
 		digitalWrite(v[7 - i], 1);
@@ -90,18 +92,19 @@ void el_choque(){
 }
 
 void la_apilada(){
-	for(int i = 8; i > 0; i--){
-		for(int j = 0; j < i; j++){
-			for(int k = 0; k < i; k++)
-					digitalWrite(v[k], 0);
-			digitalWrite(v[j], 1);
-			usleep(retardo);
+	const int retardo = 250000;
+	int i = 0, j = 0;
+ 	int final = 8;
+ 	for(j=0; j<8;j++){
+		for(i=0; i<final; i++){
+			digitalWrite(v[i], 1);
+			delay(250);
+			digitalWrite(v[i], 0);
 		}
-		digitalWrite(v[j-1], 0);
 		usleep(retardo);
-		digitalWrite(v[j-1], 1);
-		usleep(retardo);
-	}
+		digitalWrite(v[i-1], 1);
+		final--;
+  	}
 }
 
 void la_carrera(){
@@ -139,13 +142,13 @@ void la_carrera(){
 }
 
 void la_pareja(void){
+	const int retardo = 500000;
 	for (int i = 0; i <= 8; i++){
 		if(suma == 3){
 			suma = 0;
 			i = i - 2;
 		}
-		for (int j = 0; j < 8; j++)
-			digitalWrite(v[j], 0);
+		ledsOff();
 
 		if(i != 8)
 				digitalWrite(v[i], 1);
@@ -161,6 +164,7 @@ void la_pareja(void){
 }
 
 void la_serpiente(){
+	const int retardo = 250000;
 	int secuencia[][] = {
 	{1,1,1,1,0,0,0,0},
 	{0,1,1,1,1,0,0,0},
@@ -186,19 +190,24 @@ void la_serpiente(){
 }
 
 void tiro_vertical(){
-	int delay = 125000;
-	int x = 0;
-	float v = 4.0;
-	float a = -1.0;
-  float t = 0;
+	const int retardo = 30000;
+	int x = 0;  //altura, tiene un valor entre 0 y 8 (corresponde a un led)
+ 	float vel = 4.0;
+ 	float a = -1.0;
+  	float t = 0;
+  	float dt = 0.1; //tamaño del paso en cada ciclo
+	//con estos parametros la parabola que se describe tiene una raiz en t=8
+	while(t <= 8){
+		x = round(vel*t + 0.5*a*t*t);
+		ledsOff();
+		if(x >= 1)
+			digitalWrite(v[x-1], 1);
+		usleep(retardo);
+		t += dt; 
+  	}
+}
 
-	for(int i=0; i < 8; i++){
-		t = i/2.0;	//cuántos instantes de tiempo quiero mostrar
-		x = v*t + 0.5*a*t^2;
-		for(int j=0; j<8; j++)
-			digitalWrite(v[j], 0);
-
-		digitalWrite(x, 1);
-	  usleep(delay);
-	}
+void ledsOff(){
+  for (int j = 0; j < 8; j++)
+    digitalWrite(v[j], 0);
 }
