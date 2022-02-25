@@ -49,8 +49,8 @@ int main(){
 				break;
 		case 7:	tiro_vertical(pin);
 				break;
-		// case 8:	();
-		// 				break;
+		case 8:	caida_pelota(pin);
+				break;
 	}
 	return 0;
 }
@@ -105,10 +105,10 @@ int menu(){
 		puts("5. La pareja");
 		puts("6. La serpiente");
 		puts("7. Tiro vertical");
-		puts("8. ");
+		puts("8. Caida pelota");
 		scanf("%d", &op);
-		if((op < 1) || (op < 8))
+		if((op < 1) || (op > 8))
 			puts("Secuencia no valida, intente nuevamente");
-	}while((op < 1) || (op < 8));
+	}while((op < 1) || (op > 8));
 	return op; 
 }
