@@ -66,7 +66,7 @@ int main(void){
 }
 
 void caida_pelota(void){
-	for( int i=0; i < 32; i++){
+	for( int i=0; i < 33; i++){
 	  digitalWrite(led1, secuencia[i][0]);
 	  digitalWrite(led2, secuencia[i][1]);
 	  digitalWrite(led3, secuencia[i][2]);
