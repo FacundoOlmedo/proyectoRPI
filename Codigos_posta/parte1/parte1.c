@@ -56,9 +56,9 @@ int menu(){
 		puts("7. Tiro vertical");
 		puts("8. ");
 		scanf("%d", &op);
-		if((op < 1) || (op < 8))
+		if((op < 1) || (op > 8))
 			puts("Secuencia no valida, intente nuevamente");
-	}while((op < 1) || (op < 8));
+	}while((op < 1) || (op > 8));
 	return op; 
 }
 
@@ -205,6 +205,57 @@ void tiro_vertical(){
 		usleep(retardo);
 		t += dt; 
   	}
+}
+
+void caida_pelota(){
+	const int retardo = 250000;
+	int secuencia[][] = {
+	{0,0,0,0,0,0,0,1},
+	{0,0,0,0,0,0,0,1},
+	{0,0,0,0,0,0,0,1},
+	{0,0,0,0,0,0,1,0},
+	{0,0,0,0,0,0,1,0},
+	{0,0,0,0,0,0,1,0},
+	{0,0,0,0,0,1,0,0},
+	{0,0,0,0,0,1,0,0},
+	{0,0,0,0,1,0,0,0},
+	{0,0,0,0,1,0,0,0},
+	{0,0,0,1,0,0,0,0},
+	{0,0,1,0,0,0,0,0},
+	{0,1,0,0,0,0,0,0},
+	{1,0,0,0,0,0,0,0},
+	{0,1,0,0,0,0,0,0},
+	{0,0,1,0,0,0,0,0},
+	{0,0,0,1,0,0,0,0},
+	{0,0,0,1,0,0,0,0},
+	{0,0,0,0,1,0,0,0},
+	{0,0,0,0,1,0,0,0},
+	{0,0,0,0,1,0,0,0},
+	{0,0,0,1,0,0,0,0},
+	{0,0,0,1,0,0,0,0},
+	{0,0,1,0,0,0,0,0},
+	{0,1,0,0,0,0,0,0},
+	{1,0,0,0,0,0,0,0},
+	{0,1,0,0,0,0,0,0},
+	{0,0,1,0,0,0,0,0},
+	{0,0,1,0,0,0,0,0},
+	{0,1,0,0,0,0,0,0},
+	{1,0,0,0,0,0,0,0},
+	{0,1,0,0,0,0,0,0},
+	{1,0,0,0,0,0,0,0},
+	};
+
+	for( int i=0; i < 33; i++){
+	  digitalWrite(led1, secuencia[i][0]);
+	  digitalWrite(led2, secuencia[i][1]);
+	  digitalWrite(led3, secuencia[i][2]);
+	  digitalWrite(led4, secuencia[i][3]);
+	  digitalWrite(led5, secuencia[i][4]);
+	  digitalWrite(led6, secuencia[i][5]);
+	  digitalWrite(led7, secuencia[i][6]);
+	  digitalWrite(led8, secuencia[i][7]);
+	  usleep(retardo);
+	}
 }
 
 void ledsOff(){
