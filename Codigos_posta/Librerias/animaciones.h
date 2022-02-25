@@ -67,14 +67,14 @@ void la_carrera(int * pin){
 {0,0,0,0,0,0,0,1},
 };
 	for( int i=0; i < 18; i++){
-	  digitalWrite(pin[1], secuencia[i][0]);
-	  digitalWrite(pin[2], secuencia[i][1]);
-	  digitalWrite(pin[3], secuencia[i][2]);
-	  digitalWrite(pin[4], secuencia[i][3]);
-	  digitalWrite(pin[5], secuencia[i][4]);
-	  digitalWrite(pin[6], secuencia[i][5]);
-	  digitalWrite(pin[7], secuencia[i][6]);
-	  digitalWrite(pin[8], secuencia[i][7]);
+	  digitalWrite(pin[0], secuencia[i][0]);
+	  digitalWrite(pin[1], secuencia[i][1]);
+	  digitalWrite(pin[2], secuencia[i][2]);
+	  digitalWrite(pin[3], secuencia[i][3]);
+	  digitalWrite(pin[4], secuencia[i][4]);
+	  digitalWrite(pin[5], secuencia[i][5]);
+	  digitalWrite(pin[6], secuencia[i][6]);
+	  digitalWrite(pin[7], secuencia[i][7]);
 	  usleep(retardo);
 	}
 }
@@ -114,14 +114,14 @@ void la_serpiente(int * pin){
 	};
 
 	for( int i=0; i < 8; i++){
-	  digitalWrite(pin[1], secuencia[i][0]);
-	  digitalWrite(pin[2], secuencia[i][1]);
-	  digitalWrite(pin[3], secuencia[i][2]);
-	  digitalWrite(pin[4], secuencia[i][3]);
-	  digitalWrite(pin[5], secuencia[i][4]);
-	  digitalWrite(pin[6], secuencia[i][5]);
-	  digitalWrite(pin[7], secuencia[i][6]);
-	  digitalWrite(pin[8], secuencia[i][7]);
+	  digitalWrite(pin[0], secuencia[i][0]);
+	  digitalWrite(pin[1], secuencia[i][1]);
+	  digitalWrite(pin[2], secuencia[i][2]);
+	  digitalWrite(pin[3], secuencia[i][3]);
+	  digitalWrite(pin[4], secuencia[i][4]);
+	  digitalWrite(pin[5], secuencia[i][5]);
+	  digitalWrite(pin[6], secuencia[i][6]);
+	  digitalWrite(pin[7], secuencia[i][7]);
 	  usleep(retardo);
 	}
 }
@@ -141,5 +141,55 @@ void tiro_vertical(int * pin){
 
 		digitalWrite(x, 1);
 	  usleep(delay);
+	}
+}
+
+void caida_pelota(int * pin){
+	int secuencia[][] = {
+{0,0,0,0,0,0,0,1},
+{0,0,0,0,0,0,0,1},
+{0,0,0,0,0,0,0,1},
+{0,0,0,0,0,0,1,0},
+{0,0,0,0,0,0,1,0},
+{0,0,0,0,0,0,1,0},
+{0,0,0,0,0,1,0,0},
+{0,0,0,0,0,1,0,0},
+{0,0,0,0,1,0,0,0},
+{0,0,0,0,1,0,0,0},
+{0,0,0,1,0,0,0,0},
+{0,0,1,0,0,0,0,0},
+{0,1,0,0,0,0,0,0},
+{1,0,0,0,0,0,0,0},
+{0,1,0,0,0,0,0,0},
+{0,0,1,0,0,0,0,0},
+{0,0,0,1,0,0,0,0},
+{0,0,0,1,0,0,0,0},
+{0,0,0,0,1,0,0,0},
+{0,0,0,0,1,0,0,0},
+{0,0,0,0,1,0,0,0},
+{0,0,0,1,0,0,0,0},
+{0,0,0,1,0,0,0,0},
+{0,0,1,0,0,0,0,0},
+{0,1,0,0,0,0,0,0},
+{1,0,0,0,0,0,0,0},
+{0,1,0,0,0,0,0,0},
+{0,0,1,0,0,0,0,0},
+{0,0,1,0,0,0,0,0},
+{0,1,0,0,0,0,0,0},
+{1,0,0,0,0,0,0,0},
+{0,1,0,0,0,0,0,0},
+{1,0,0,0,0,0,0,0},
+};
+
+	for( int i=0; i < 33; i++){
+	  digitalWrite(pin[0], secuencia[i][0]);
+	  digitalWrite(pin[1], secuencia[i][1]);
+	  digitalWrite(pin[2], secuencia[i][2]);
+	  digitalWrite(pin[3], secuencia[i][3]);
+	  digitalWrite(pin[4], secuencia[i][4]);
+	  digitalWrite(pin[5], secuencia[i][5]);
+	  digitalWrite(pin[6], secuencia[i][6]);
+	  digitalWrite(pin[7], secuencia[i][7]);
+	  usleep(retardo);
 	}
 }
