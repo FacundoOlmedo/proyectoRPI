@@ -49,8 +49,8 @@ int main(){
 				break;
 		case 7:	tiro_vertical(pin);
 				break;
-		// case 8:	();
-		// 				break;
+		case 8:	caida_pelota(pin);
+				break;
 	}
 	return 0;
 }

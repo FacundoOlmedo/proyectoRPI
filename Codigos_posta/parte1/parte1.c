@@ -56,9 +56,9 @@ int menu(){
 		puts("7. Tiro vertical");
 		puts("8. ");
 		scanf("%d", &op);
-		if((op < 1) || (op < 8))
+		if((op < 1) || (op > 8))
 			puts("Secuencia no valida, intente nuevamente");
-	}while((op < 1) || (op < 8));
+	}while((op < 1) || (op > 8));
 	return op; 
 }
 
@@ -108,6 +108,7 @@ void la_apilada(){
 }
 
 void la_carrera(){
+	const int retardo = 250000;
 	int secuencia[18][8] = {
 {0,0,0,0,0,0,0,0},
 {0,0,0,0,0,0,0,0},
