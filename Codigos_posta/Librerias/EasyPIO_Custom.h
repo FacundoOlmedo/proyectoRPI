@@ -22,6 +22,8 @@ volatile unsigned int *gpio; //Pointer to base of gpio
 #define GPLEV ((volatile unsigned int *) (gpio + 13))
 #define INPUT 0
 #define OUTPUT 1
+#define HIGH 1
+#define LOW 0
 
 void pioInit();
 void pinMode(int pin, int function);
