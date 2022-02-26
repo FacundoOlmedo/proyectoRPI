@@ -31,28 +31,31 @@ int main(){
 	for(int i=0; i<8; i++)
 		pinMode(pin[i], OUTPUT);  
 	
-	int op = menu();
-
-	switch(op){
-		case 1:	auto_fantastico(pin);
-				break;
-		case 2:	el_choque(pin);
-				break;
-		case 3:	la_apilada(pin);
-				break;
-		case 4:	la_carrera(pin);
-				break;
-		case 5:	la_pareja(pin);
-				break;
-		case 6:	la_serpiente(pin);
-				break;
-		case 7:	tiro_vertical(pin);
-				break;
-		case 8:	caida_pelota(pin);
-				break;
-	}
-
 	
+	while(1)
+	{
+		int op = menu();
+
+		switch(op){
+			case 1:	auto_fantastico(pin);
+					break;
+			case 2:	el_choque(pin);
+					break;
+			case 3:	la_apilada(pin);
+					break;
+			case 4:	la_carrera(pin);
+					break;
+			case 5:	la_pareja(pin);
+					break;
+			case 6:	la_serpiente(pin);
+					break;
+			case 7:	tiro_vertical(pin);
+					break;
+			case 8:	caida_pelota(pin);
+					break;
+		}
+		ledsOff();
+	}
 	return 0;
 }
 
@@ -86,7 +89,7 @@ int login(){
 			break;
 		}else
 			puts("\n---------------------------\n     Password invalida\n---------------------------");
-				
+		
 		intentos++;
 		tec = 0;
 		i = 0;
