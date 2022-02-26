@@ -5,17 +5,18 @@
 #include <unistd.h>
 #include <math.h>
 
-int multiplicador = 1;
+// int multiplicador = 1;
 
 int menu();
-void auto_fantastico();
-void el_choque();
-void la_apilada();
-void la_carrera();
-void la_pareja();
-void la_serpiente();
-void tiro_vertical();
-void caida_pelota();
-void ledsOff();
+void auto_fantastico(int *);
+void el_choque(int *);
+void la_apilada(int *);
+void la_carrera(int *);
+void la_pareja(int *);
+void la_serpiente(int *);
+void tiro_vertical(int *);
+void caida_pelota(int *);
+void ledsOff(int *);
+int check_keys();
 
 #endif
