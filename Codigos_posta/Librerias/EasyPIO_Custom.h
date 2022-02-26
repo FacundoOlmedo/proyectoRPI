@@ -5,6 +5,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#ifndef EASY_PIO_H
+#define EASY_PIO_H
+
 #define BCM2835_PERI_BASE 0x3F000000
 #define GPIO_BASE (BCM2835_PERI_BASE + 0x200000)
 
@@ -54,6 +57,6 @@ int digitalRead(int pin) {
  return (GPLEV[reg] >> offset) & 0x00000001;
 }
 
-
+#endif
 
 

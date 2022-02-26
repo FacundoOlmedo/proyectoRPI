@@ -1,5 +1,6 @@
-#include "EasyPIO_Custom.h"
+#include "../Librerias/EasyPIO_Custom.h"
 #include <unistd.h>
+#include <math.h>
 
 #define led1 3
 #define led2 4
@@ -9,6 +10,17 @@
 #define led6 22
 #define led7 23
 #define led8 24
+
+int menu();
+void auto_fantastico();
+void el_choque();
+void la_apilada();
+void la_carrera();
+void la_pareja();
+void la_serpiente();
+void tiro_vertical();
+void caida_pelota();
+void ledsOff();
 
 int v[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
 
@@ -62,7 +74,7 @@ int menu(){
 	return op; 
 }
 
-void autofantastico(){
+void auto_fantastico(){
 	const int retardo = 250000;
 	for (int i = 0; i < 8; i++){
 		for (int j = 0; j < 8; j++)
@@ -98,7 +110,7 @@ void la_apilada(){
  	for(j=0; j<8;j++){
 		for(i=0; i<final; i++){
 			digitalWrite(v[i], 1);
-			delay(250);
+			usleep(250);
 			digitalWrite(v[i], 0);
 		}
 		usleep(retardo);
@@ -143,6 +155,7 @@ void la_carrera(){
 }
 
 void la_pareja(void){
+	int suma;
 	const int retardo = 500000;
 	for (int i = 0; i <= 8; i++){
 		if(suma == 3){
@@ -154,7 +167,7 @@ void la_pareja(void){
 		if(i != 8)
 				digitalWrite(v[i], 1);
 		if(i != 0)
-				digitalWrite(v[i-1], 1)
+				digitalWrite(v[i-1], 1);
 		suma++;
 		usleep(retardo);
 	}
@@ -166,7 +179,7 @@ void la_pareja(void){
 
 void la_serpiente(){
 	const int retardo = 250000;
-	int secuencia[][] = {
+	int secuencia[][8] = {
 	{1,1,1,1,0,0,0,0},
 	{0,1,1,1,1,0,0,0},
 	{0,0,1,1,1,1,0,0},
@@ -210,7 +223,7 @@ void tiro_vertical(){
 
 void caida_pelota(){
 	const int retardo = 250000;
-	int secuencia[][] = {
+	int secuencia[][8] = {
 	{0,0,0,0,0,0,0,1},
 	{0,0,0,0,0,0,0,1},
 	{0,0,0,0,0,0,0,1},
