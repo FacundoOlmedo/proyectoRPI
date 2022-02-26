@@ -37,21 +37,29 @@ int main(){
 		int op = menu();
 
 		switch(op){
-			case 1:	auto_fantastico(pin);
+			case 1:	puts("Estas viendo el auto fantastico, para salir presione ENTER");
+					auto_fantastico(pin);
 					break;
-			case 2:	el_choque(pin);
+			case 2:	puts("Estas viendo el choque, para salir presione ENTER");
+					el_choque(pin);
 					break;
-			case 3:	la_apilada(pin);
+			case 3:	puts("Estas viendo la apilada, para salir presione ENTER");
+					la_apilada(pin);
 					break;
-			case 4:	la_carrera(pin);
+			case 4:	puts("Estas viendo la carrera, para salir presione ENTER");
+					la_carrera(pin);
 					break;
-			case 5:	la_pareja(pin);
+			case 5:	puts("Estas viendo la pareja, para salir presione ENTER");
+					la_pareja(pin);
 					break;
-			case 6:	la_serpiente(pin);
+			case 6:	puts("Estas viendo la serpiente, para salir presione ENTER");
+					la_serpiente(pin);
 					break;
-			case 7:	tiro_vertical(pin);
+			case 7:	puts("Estas viendo el tiro vertical, para salir presione ENTER");
+					tiro_vertical(pin);
 					break;
-			case 8:	caida_pelota(pin);
+			case 8:	puts("Estas viendo la caida de la pelota, para salir presione ENTER");
+					caida_pelota(pin);
 					break;
 		}
 		ledsOff();
