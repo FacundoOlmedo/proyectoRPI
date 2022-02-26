@@ -15,7 +15,6 @@
 #define led6 22
 #define led7 23
 #define led8 24
-#define retardo 250000
 
 int pin[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
 
@@ -62,7 +61,7 @@ int main(){
 					caida_pelota(pin);
 					break;
 		}
-		ledsOff();
+		ledsOff(pin);
 	}
 	return 0;
 }
