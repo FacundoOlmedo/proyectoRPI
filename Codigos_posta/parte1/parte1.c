@@ -30,27 +30,39 @@ int main(void){
 	for(int i=0; i<8; i++)
 		pinMode(v[i], OUTPUT);  
 	
-	int op = menu();
-	for(int i=0; i<3; i++){
-		switch(op){
-			case 1:	auto_fantastico();
-							break;
-			case 2:	el_choque();
-							break;
-			case 3:	la_apilada();
-							break;
-			case 4:	la_carrera();
-							break;
-			case 5:	la_pareja();
-							break;
-			case 6:	la_serpiente();
-							break;
-			case 7:	tiro_vertical();
-							break;
-			case 8:	caida_pelota();
-							break;
-		}
+	
+	while(1)
+	{
 		ledsOff();
+		int op = menu();
+		
+		if(op == 9)
+		{
+			return 0;
+		}
+		
+		for(int i = 0; i<2;i++)
+		{
+			switch(op)
+			{
+				case 1:	auto_fantastico();
+								break;
+				case 2:	el_choque();
+								break;
+				case 3:	la_apilada();
+								break;
+				case 4:	la_carrera();
+								break;
+				case 5:	la_pareja();
+								break;
+				case 6:	la_serpiente();
+								break;
+				case 7:	tiro_vertical();
+								break;
+				case 8:	caida_pelota();
+								break;
+			}
+		}
 	}
 	return 0;
 }
@@ -66,11 +78,12 @@ int menu(){
 		puts("5. La pareja");
 		puts("6. La serpiente");
 		puts("7. Tiro vertical");
-		puts("8. ");
+		puts("8. Caida pelota");
+		puts("9. Salir");
 		scanf("%d", &op);
-		if((op < 1) || (op > 8))
+		if((op < 1) || (op > 9))
 			puts("Secuencia no valida, intente nuevamente");
-	}while((op < 1) || (op > 8));
+	}while((op < 1) || (op > 9));
 	return op; 
 }
 
@@ -212,7 +225,7 @@ void tiro_vertical(){
   	float dt = 0.1; //tamaño del paso en cada ciclo
 	//con estos parametros la parabola que se describe tiene una raiz en t=8
 	while(t <= 8){
-		x = round(vel*t + 0.5*a*t*t);
+		x = vel*t + 0.5*a*t*t;
 		ledsOff();
 		if(x >= 1)
 			digitalWrite(v[x-1], 1);

@@ -1,14 +1,14 @@
 # MAKE PARA EJECUTAR EN LA PC
 
-CC = arm-none-eabi-gcc
-AS = arm-none-eabi-as
-LD = arm-none-eabi-ld
+CC = gcc
+AS = as
+LD = ld
 
 OBJECTS = parte1.o EasyPIO.o
 
-CFLAGS = -Wall -mcpu=arm7tdmi -g  -c
-ASFLAGS = -mcpu=arm7tdmi -g 
-LDFLAGS = -Ttext=0 -nostartfiles -g 
+CFLAGS = -Wall -g  -c
+ASFLAGS = -g 
+LDFLAGS = -g 
 
 parte1.elf: $(OBJECTS)
 		$(CC) $(LDFLAGS) $(OBJECTS) -o parte1.elf
