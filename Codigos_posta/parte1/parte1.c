@@ -96,7 +96,7 @@ void auto_fantastico(){
 		digitalWrite(v[i], 1);
 		usleep(retardo);
 	}
-	for (int i = 6; i > 0; i--){
+	for (int i = 7; i >= 0; i--){
 		for (int j = 0; j < 8; j++)
 			digitalWrite(v[j], 0);
 
