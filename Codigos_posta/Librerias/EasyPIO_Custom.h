@@ -9,17 +9,23 @@
 #define EASY_PIO_H
 
 #define BCM2835_PERI_BASE 0x3F000000
-#define GPIO_BASE (BCM2835_PERI_BASE + 0x200000)
+// #define GPIO_BASE (BCM2835_PERI_BASE + 0x200000)
+#define GPIO_BASE (0x7E200000)      //Registro base para los GPIO de la RBi de lucho
 
-volatile unsigned int *gpio; //Pointer to base of gpio
+extern volatile unsigned int *gpio; //Pointer to base of gpio
 #define GPLEV0 (* (volatile unsigned int *) (gpio + 13))
 #define BLOCK_SIZE (4*1024)
 
-
 #define GPFSEL ((volatile unsigned int *) (gpio + 0))
-#define GPSET ((volatile unsigned int *) (gpio + 7))
-#define GPCLR ((volatile unsigned int *) (gpio + 10))
-#define GPLEV ((volatile unsigned int *) (gpio + 13))
+#define GPSET ((volatile unsigned int *) (gpio + 0x1c))
+#define GPCLR ((volatile unsigned int *) (gpio + 0x28))
+#define GPLEV ((volatile unsigned int *) (gpio + 0x34))
+
+// #define GPFSEL ((volatile unsigned int *) (gpio + 0))
+// #define GPSET ((volatile unsigned int *) (gpio + 7))
+// #define GPCLR ((volatile unsigned int *) (gpio + 10))
+// #define GPLEV ((volatile unsigned int *) (gpio + 13))
+
 #define INPUT 0
 #define OUTPUT 1
 #define HIGH 1
