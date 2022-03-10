@@ -112,7 +112,7 @@ int menu(){
 		puts("1. Auto fantastico");
 		puts("2. El choque");
 		puts("3. La apilada");
-		puts("4. La carrera");
+		puts("4. La carrera.");
 		puts("5. La pareja");
 		puts("6. La serpiente");
 		puts("7. Tiro vertical");
