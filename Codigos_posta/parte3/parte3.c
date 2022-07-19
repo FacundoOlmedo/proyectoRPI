@@ -2,8 +2,8 @@
 #include <termios.h>
 #include <string.h>
 #include <unistd.h>
-#include "EasyPIO_Custom.h"
-#include "animaciones.h"
+#include "../Librerias/EasyPIO_Custom.h"
+#include "../Librerias/animaciones.h"
 
 #define FD_STDIN 0
 
@@ -36,8 +36,9 @@ int main(){
 		int op = menu();
 
 		switch(op){
-			case 1:	puts("Estas viendo el auto fantastico, para salir presione ENTER");
-					auto_fantastico(pin);
+			case 1:	printf("\033c");
+					puts("Estas viendo el auto fantastico, para salir presione ENTER");
+					auto_fantastico(pin,1.5);
 					break;
 			case 2:	puts("Estas viendo el choque, para salir presione ENTER");
 					el_choque(pin);
