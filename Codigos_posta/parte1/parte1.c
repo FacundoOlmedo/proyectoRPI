@@ -31,20 +31,16 @@ int main(void){
 		pinMode(v[i], OUTPUT);  
 	
 	
-	while(1)
-	{
+	while(1){
 		ledsOff();
 		int op = menu();
 		
-		if(op == 9)
-		{
+		if(op == 9){
 			return 0;
 		}
 		
-		for(int i = 0; i<2;i++)
-		{
-			switch(op)
-			{
+		for(int i = 0; i<2;i++){
+			switch(op){
 				case 1:	auto_fantastico();
 								break;
 				case 2:	el_choque();
