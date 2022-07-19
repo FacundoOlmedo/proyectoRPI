@@ -2,23 +2,23 @@
 
 int multiplicador = 1;
 
-void auto_fantastico(int * pin){
-	int retardo_base = 250000;
-	int retardo = multiplicador * retardo_base;
+void auto_fantastico(int * pin, float vel){
+	float retardo_base = 250000.00;
+	int retardo = (int)(vel * retardo_base);
 	for (int i = 0; i < 8; i++){
 		ledsOff(pin);
 		digitalWrite(pin[i], 1);
-		int salir = check_keys();
-		if(salir)
-			return;
+		//int salir = check_keys();
+		//if(salir)
+		//	return;
 		usleep(retardo);
 	}
 	for (int i = 6; i > 0; i--){
 		ledsOff(pin);
 		digitalWrite(pin[i], 1);
-		int salir = check_keys();
-		if(salir)
-			return;
+		//int salir = check_keys();
+		//if(salir)
+		//	return;
 		usleep(retardo);
 	}
 }
@@ -46,20 +46,20 @@ void la_apilada(int * pin){
 			for(int k = 0; k < i; k++)
 					digitalWrite(pin[k], 0);
 			digitalWrite(pin[j], 1);
-			int salir = check_keys();
-			if(salir)
-				return;
+			//int salir = check_keys();
+			//if(salir)
+			//	return;
 			usleep(retardo);
 		}
 		digitalWrite(pin[j-1], 0);
-		int salir = check_keys();
-		if(salir)
-			return;
+		//int salir = check_keys();
+		//if(salir)
+		//	return;
 		usleep(retardo);
 		digitalWrite(pin[j-1], 1);
-		salir = check_keys();
-		if(salir)
-			return;
+		//salir = check_keys();
+		//if(salir)
+		//	return;
 		usleep(retardo);
 	}
 }
