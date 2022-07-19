@@ -7,6 +7,7 @@
 
 #define FD_STDIN 0
 
+<<<<<<< HEAD
 #define led1 17
 #define led2 27
 #define led3 22
@@ -15,6 +16,25 @@
 #define led6 11
 #define led7 5
 #define led8 6
+=======
+// #define led1 3
+// #define led2 4
+// #define led3 17
+// #define led4 18
+// #define led5 27
+// #define led6 22
+// #define led7 23
+// #define led8 24
+
+#define led1 2
+#define led2 3
+#define led3 4
+#define led4 7
+#define led5 27
+#define led6 22
+#define led7 10
+#define led8 9
+>>>>>>> 0341d65a2cfff608e808dde814193d45a034be2b
 
 int pin[8] = {led1, led2, led3, led4, led5, led6, led7, led8};
 
@@ -118,7 +138,7 @@ int menu(){
 		puts("1. Auto fantastico");
 		puts("2. El choque");
 		puts("3. La apilada");
-		puts("4. La carrera");
+		puts("4. La carrera.");
 		puts("5. La pareja");
 		puts("6. La serpiente");
 		puts("7. Tiro vertical");

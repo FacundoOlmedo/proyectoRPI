@@ -1,5 +1,7 @@
 #include "EasyPIO_Custom.h"
 
+volatile unsigned int *gpio; //Pointer to base of gpio
+
 void pioInit(){
  int mem_fd;
  void *reg_map;
@@ -13,7 +15,7 @@ void pioInit(){
  GPIO_BASE); // offset a la GPIO
  gpio = (volatile unsigned *)reg_map;
 
-}
+} 
 
 void pinMode(int pin, int function) {
  int reg = pin/10;
